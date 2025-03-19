@@ -4,8 +4,8 @@ pipeline {
     environment {
         IMAGE_NAME = "aruthra/my-app"
         REGISTRY = "docker.io"
-        DOCKER_CREDENTIALS_ID = "aruthra"
-        GITHUB_CREDENTIALS_ID = "Aruthra-dhandapani"
+        DOCKER_CREDENTIALS_ID = "Docker"
+        GITHUB_CREDENTIALS_ID = "git"
         APP_DIR = "/Downloads/jenkins"
     }
 

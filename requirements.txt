@@ -1,1 +1,5 @@
+<<<<<<< HEAD
 flask==3.0.0
+=======
+flask==3.0.0
+>>>>>>> 784e4ad (Initial commit with project files)

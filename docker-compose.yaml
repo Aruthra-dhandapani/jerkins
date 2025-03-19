@@ -1,11 +1,27 @@
 version: '3.8'
 
 services:
-  web:
-    image: "nginx:latest"
+  app:
+    build: .
     ports:
-      - "8080:80"
-  db:
-    image: "postgres:latest"
+      - "5000:5000"
     environment:
-      POSTGRES_PASSWORD: example
+      - FLASK_ENV=development
+      - DATABASE_URL=postgresql://postgres:password@db:5432/postgres-db
+    depends_on:
+      - redis
+      - db
+
+  redis:
+    image: "redis:alpine"
+    restart: always
+
+  db:
+    image: "postgres:alpine"
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: postgres-db
+    ports:
+      - "5432:5432"
